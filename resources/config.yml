@@ -5,7 +5,7 @@ enable: true
 bomb.cooldown: 30
 
 # The radius of the bomb explosion
-bomb.raidus: 4
+bomb.radius: 4
 
 # Players with this permission will be able to use /timebomb
 edit.permission: command.timebomb

@@ -30,8 +30,16 @@ class Bomb {
     /** @var int */
     private $time;
 
+    /** @var int */
+    private $cooldown;
+
+    /** @var int */
+    private $radius;
+
     public function __construct(Player $player) {
         $this->player = $player;
+        $this->cooldown = Settings::getCooldown();
+        $this->radius = Settings::getRadius();
         $this->createBomb($player);
     }
 
@@ -40,13 +48,13 @@ class Bomb {
 
         $this->chest->getLevel()->setBlock($this->chest, Block::get(Block::AIR));
 
-        $explosion = new Explosion($this->chest, Settings::getRadius());
+        $explosion = new Explosion($this->chest, $this->radius);
         $explosion->explodeA();
         $explosion->explodeB();
     }
 
     public function attemptToExplode(): void {
-        if($this->getTimeElapsed() > Settings::getCooldown()) {
+        if($this->getTimeElapsed() > $this->cooldown) {
             $this->explode();
         } else {
             $this->updateName();
@@ -65,7 +73,7 @@ class Bomb {
     }
 
     private function getTimeRemaining(): int {
-        return Settings::getCooldown() - $this->getTimeElapsed();
+        return $this->cooldown - $this->getTimeElapsed();
     }
 
     private function createBomb(Player $player): void {
