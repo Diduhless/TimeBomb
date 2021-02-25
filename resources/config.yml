@@ -1,0 +1,11 @@
+# Enable or disable the plugin
+enable: true
+
+# Chests will explode after this amount of seconds
+bomb.cooldown: 30
+
+# The radius of the bomb explosion
+bomb.raidus: 4
+
+# Players with this permission will be able to use /timebomb
+edit.permission: command.timebomb

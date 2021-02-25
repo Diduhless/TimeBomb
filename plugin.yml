@@ -1,0 +1,7 @@
+main: diduhless\timebomb\TimeBomb
+name: TimeBomb
+description: 💣 A timebomb plugin for pocketmine servers
+author: Didah (@Diduhless)
+website: https://github.com/Diduhless
+version: "1.0.0"
+api: 3.0.0
